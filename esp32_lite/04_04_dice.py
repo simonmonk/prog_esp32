@@ -1,8 +1,8 @@
-from machine import Pin
+from machine import Pin, Signal
 from time import sleep
 from random import randint
 
-led = Pin(22, Pin.OUT)
+led = Signal(22, Pin.OUT, invert=True)
 
 def throw_dice():
     return randint(1, 6)
@@ -15,7 +15,7 @@ def blink(times, delay):
         sleep(delay)
         
 while True:
-    input()
+    input('Press Enter in Shell to Throw Dice')
     dice_throw = throw_dice()
     print(dice_throw)
     blink(dice_throw, 0.2)

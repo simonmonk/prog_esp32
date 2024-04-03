@@ -7,6 +7,8 @@ red_ch = PWM(Pin(25))
 green_ch = PWM(Pin(33))
 blue_ch = PWM(Pin(32))
 
+button = Pin(14, Pin.IN, Pin.PULL_UP)
+
 colors = [[255, 0, 0], [127, 127, 0],[0, 255, 0], [0, 127, 127], [0, 0, 255], [127, 0, 127]]
 
 def set_color(rgb):
@@ -17,8 +19,10 @@ def set_color(rgb):
 index = 0
 set_color(colors[index])
 while True:
-    index +=1
-    if index >= len(colors):
-        index = 0
-    sleep(0.2)
+    if button.value() == 0:
+        index +=1
+        if index >= len(colors):
+            index = 0
+        sleep(0.2)
     set_color(colors[index])
+

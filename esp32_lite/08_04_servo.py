@@ -1,10 +1,7 @@
 from machine import Pin, PWM
-from utime import sleep
+from time import sleep
 
-button_up = Pin(14, Pin.IN, Pin.PULL_UP)
-button_down = Pin(15, Pin.IN, Pin.PULL_UP)
-
-servo = PWM(Pin(16))
+servo = PWM(Pin(32))
 servo.freq(50) # pulse every 20ms
 
 def set_angle(angle, min_pulse_us=500, max_pulse_us=2500):
@@ -16,19 +13,17 @@ def set_angle(angle, min_pulse_us=500, max_pulse_us=2500):
     print(angle)
     servo.duty_u16(duty)
     
-angle = 90
-set_angle(90)
-min_angle = 10
-max_angle = 160
+def waggle():
+    set_angle(10)
+    sleep(0.5)
+    set_angle(90)
+    sleep(0.5)
+    set_angle(170)
+    sleep(0.5)
+    set_angle(90)
+    sleep(0.5)
 
 while True:
-    if button_up.value() == 0 and angle <= max_angle:
-        angle += 1
-        set_angle(angle)
-        #print(angle)
-        sleep(0.01)
-    elif button_down.value() == 0 and angle > min_angle:
-        angle -= 1
-        set_angle(angle)
-        #print(angle)
-        sleep(0.01)
+    waggle()
+    sleep(2)
+    

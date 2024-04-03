@@ -1,8 +1,8 @@
-from machine import Pin
+from machine import Pin, Signal
 from time import sleep
 from random import randint
 
-led = Pin(22, Pin.OUT)
+led = Signal(22, Pin.OUT, invert=True)
 
 def throw_dice(num_dice=1):
     total = 0

@@ -1,7 +1,7 @@
 from machine import ADC, Pin
 from time import sleep
 
-analog = ADC(32)
+analog = ADC(Pin(32), atten=ADC.ATTN_11DB)
 
 while True:
     reading = analog.read_u16()

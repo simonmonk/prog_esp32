@@ -1,9 +1,9 @@
 from machine import ADC, Pin
 from time import sleep
 
-analog = ADC(32)
+analog = ADC(Pin(32), atten=ADC.ATTN_11DB)
 
 while True:
-    reading = analog.read_u16()
+    reading = analog.read_uv() / 1000000
     print(reading)
     sleep(0.5)

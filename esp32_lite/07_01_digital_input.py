@@ -1,7 +1,7 @@
 from machine import Pin
-from utime import sleep
+from time import sleep
 
-switch = Pin(10, Pin.IN, Pin.PULL_UP)
+switch = Pin(12, Pin.IN, Pin.PULL_UP)
 
 while True:
     print(switch.value())

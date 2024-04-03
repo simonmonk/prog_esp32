@@ -1,7 +1,7 @@
-from machine import Pin
+from machine import Pin, Signal
 from time import sleep
 
-led = Pin(22, Pin.OUT) 
+led = Signal(22, Pin.OUT, invert=True)
 
 def blink(times, delay):
     for x in range(1, times+1):
