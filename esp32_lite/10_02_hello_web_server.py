@@ -20,6 +20,6 @@ connect_wifi(ssid, password)
 
 @app.route('/')
 def index(request):
-    return 'Hello from Pico W'
+    return 'Hello from ESP32'
 
 app.run(port=80)
