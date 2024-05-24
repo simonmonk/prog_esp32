@@ -5,7 +5,7 @@ from neopixel import NeoPixel
 
 NUM_LEDS = 10
 
-pixels = NeoPixel(Pin(5), 10)
+pixels = NeoPixel(Pin(5), NUM_LEDS)
 
 def clear():
     pixels.fill((0, 0, 0))
@@ -18,7 +18,7 @@ def randomize():
         pixels.write()
         sleep(0.1)
     
-clear()
+randomize()
 
 print("Enter the LED's number to turn it on")
 print("or c-clear r-randomize")

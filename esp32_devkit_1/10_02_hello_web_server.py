@@ -1,8 +1,9 @@
 from network import WLAN, STA_IF
+from microdot import Microdot
 from time import sleep
 
-ssid = 'network'
-password = 'password'
+ssid = 'network'      # CHANGE ME
+password = 'password' # CHANGE ME
 
 def connect_wifi(ssid, password):
     wlan = WLAN(STA_IF)
@@ -13,5 +14,12 @@ def connect_wifi(ssid, password):
         print('.', end='')
         sleep(1)
     print('IP address:', wlan.ifconfig()[0])
-    
+
+app = Microdot()  
 connect_wifi(ssid, password)
+
+@app.route('/') # Handler for the root page
+def index(request):
+    return 'Hello from ESP32'
+
+app.run(port=80)

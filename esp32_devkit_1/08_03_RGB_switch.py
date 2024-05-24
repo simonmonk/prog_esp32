@@ -9,10 +9,17 @@ blue_ch = PWM(Pin(32))
 
 button = Pin(14, Pin.IN, Pin.PULL_UP)
 
-colors = [[255, 0, 0], [127, 127, 0],[0, 255, 0], [0, 127, 127], [0, 0, 255], [127, 0, 127]]
+colors = [
+    [255, 0, 0],   # red
+    [127, 127, 0], # orange
+    [0, 255, 0],   # green
+    [0, 127, 127], # cyan
+    [0, 0, 255],   # blue
+    [127, 0, 127]  # purple
+]
 
 def set_color(rgb):
-    red_ch.duty_u16(rgb[0] * 256)
+    red_ch.duty_u16(rgb[0] * 256) # 16 bit from 8 bit
     green_ch.duty_u16(rgb[1] * 256)
     blue_ch.duty_u16(rgb[2] * 256)
 

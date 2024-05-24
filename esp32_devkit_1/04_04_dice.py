@@ -15,9 +15,9 @@ def blink(times, delay):
         sleep(delay)
         
 while True:
+    # Wait for Enter to be pressed
     input('Press Enter in Shell to Throw Dice')
+    # Enter has been pressed
     dice_throw = throw_dice()
     print(dice_throw)
     blink(dice_throw, 0.2)
-
-

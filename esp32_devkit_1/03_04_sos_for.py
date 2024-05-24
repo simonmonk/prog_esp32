@@ -17,3 +17,4 @@ while True:
         sleep(0.6)
         led.off()
         sleep(0.6)
+    sleep(0.4) # Gap between O and S

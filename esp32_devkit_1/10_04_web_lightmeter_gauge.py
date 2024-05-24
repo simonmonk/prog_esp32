@@ -3,8 +3,8 @@ from microdot import Microdot
 from machine import ADC, Pin
 from time import sleep
 
-ssid = 'network'
-password = 'password'
+ssid = 'network'      # CHANGE ME
+password = 'password' # CHANGE ME
 
 index_page = '''
 <!DOCTYPE html>

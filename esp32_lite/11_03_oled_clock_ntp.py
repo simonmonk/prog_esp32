@@ -6,8 +6,8 @@ from network import WLAN, STA_IF
 import ntptime
 import datetime
 
-ssid = 'network'
-password = 'password'
+ssid = 'network'      # CHANGE ME
+password = 'password' # CHANGE ME
 
 tz = datetime.timezone(datetime.timedelta(hours=0))
 
